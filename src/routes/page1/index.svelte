@@ -4,6 +4,7 @@
 	const companybase = (i) => {
 		return `abc${i}.com`;
 	};
+
 	const titleBase = (i, name) => {
 		return `${name}ダミー${i}${name}ダミー${i}${name}ダミー${i}${name}ダミー${i}${name}ダミー${i}${name}ダミー${i}${name}ダミー${i}${name}ダミー${i}${name}ダミー${i}`;
 	};
@@ -18,9 +19,10 @@
 		data.index = i;
 		data.company = `all${i}.com`;
 		data.title = `${name}ダミー${i}${name}ダミー${i}${name}ダミー${i}${name}ダミー${i}${name}ダミー${i}${name}ダミー${i}${name}ダミー${i}${name}ダミー${i}${name}ダミー${i}`;
-		currentDate.add(Math.round(Math.random(10) * 40) * -1, 'm');
+		currentDate.add(Math.round(Math.random() * 40) * -1, 'm');
 		data.dateiso = currentDate.toISOString();
-		// data.date = currentDate.format('YYYY-MM-DD HH:mm');
+		data.date = '';
+
 		let diff = now.diff(currentDate, 'm');
 		if (diff < 60) {
 			data.date = diff + '分前';
@@ -29,8 +31,8 @@
 		} else {
 			data.date = Math.round(diff / (60 * 24)) + '日前';
 		}
+
 		allnews.push(data);
-		console.log(now.diff(currentDate, 'm'));
 	}
 </script>
 

@@ -14,4 +14,6 @@
 	<slot />
 </main>
 
-<footer class="text-center">これはSvelteKitによって作成されています。</footer>
+<footer class="flex items-center justify-center text-xs bg-gray-900 text-white h-[40px]">
+	これはSvelteKitによって作成されています。
+</footer>
