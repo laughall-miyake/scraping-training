@@ -54,9 +54,12 @@
 	<hr class="mt-2 " />
 	<div class="flex flex-wrap gap-4 mt-4 list">
 		{#each [1, 2, 3, 4, 5] as i}
-			<a href="/aaa" class="w-full md:w-[49%] item">
-				<div>{companybase(i)}</div>
-				<div>{titleBase(i, 'トップ')}</div>
+			<a href={'/page1/details/' + companybase(i)} class="w-full md:w-[49%] item flex ">
+				<img src={'/sample/' + i + '.jpg'} alt="" class="w-[100px] h-[100px] object-cover" />
+				<div class="ml-2">
+					<div>{companybase(i)}</div>
+					<div>{titleBase(i, 'トップ')}</div>
+				</div>
 			</a>
 		{/each}
 	</div>
