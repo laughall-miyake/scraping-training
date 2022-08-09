@@ -109,3 +109,11 @@ button:focus:not(:focus-visible) {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+input {
+	@apply border p-2 rounded;
+}
+
+input:disabled {
+	@apply bg-gray-200;
+}

@@ -4,8 +4,11 @@
 </script>
 
 <svelte:head>
-	<title>スクレイピング練習用サイト</title>
-	<meta name="description" content="スクレイピング練習用サイト" />
+	<title>スクレイピング練習用サイト（作成中）</title>
+	<meta
+		name="description"
+		content="誰でも自由に使えるスクレイピング練習用サイト！条件指定で好きなレイアウトでスクレイピングを試せます。"
+	/>
 </svelte:head>
 
 <Header />
