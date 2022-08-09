@@ -1,61 +1,14 @@
-<script context="module">
-	export const prerender = true;
-</script>
-
-<script>
-	import Counter from '$lib/Counter.svelte';
-</script>
-
-<svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
-</svelte:head>
-
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset="svelte-welcome.webp" type="image/webp" />
-				<img src="svelte-welcome.png" alt="Welcome" />
-			</picture>
-		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/index.svelte</strong>
-	</h2>
-
-	<Counter />
-</section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
-</style>
+<div>
+	<div class="border p-8 bg-gray-50">
+		<div>スクレイピングの練習をしたいけど、サイトに迷惑をかけたくない人のための練習サイト</div>
+		<div>特に制限はありません。お問い合わせや要望はgithubからお願いします。</div>
+	</div>
+	<div class="flex gap-4 mt-4">
+		<a href="/site1" class="border p-16 shadow-lg roudned text-center">
+			<div class="text-xl font-bold">サイト１</div>
+			<div>ニュースサイト編</div>
+		</a>
+		<a href="/" class="border p-16 shadow-lg roudned bg-gray-300">ページ２作成中</a>
+		<a href="/" class="border p-16 shadow-lg roudned bg-gray-300">ページ３作成中</a>
+	</div>
+</div>
