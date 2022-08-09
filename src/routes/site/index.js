@@ -1,13 +1,14 @@
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export function GET(event) {
 	// log all headers
-	console.log(...event.request.headers);
+	console.log(event.clientAddress);
 
 	return {
 		body: {
 			// retrieve a specific header
-			host: event.request.headers.get('host'),
-			userAgent: event.request.headers.get('user-agent')
+			ipAddress: event.clientAddress,
+			userAgent: event.request.headers.get('user-agent'),
+			referer: event.request.headers.get('referer')
 		}
 	};
 }

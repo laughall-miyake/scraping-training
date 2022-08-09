@@ -10,7 +10,7 @@
 	};
 </script>
 
-<div class="flex flex-wrap justify-evenly">
+<div class="flex flex-wrap gap-4">
 	<div class="flex flex-col gap-2">
 		<label for="">
 			<span>記事数</span>
@@ -18,7 +18,7 @@
 		</label>
 		<label for="">
 			<span>タイトル</span>
-			<input type="text" class="w-60" bind:value={controls.title} />
+			<input type="text" class="max-w-60" bind:value={controls.title} />
 		</label>
 		<label for="">
 			<span>画像あり</span>
@@ -34,12 +34,15 @@
 			<span>更新日の時間形式</span>
 			<div class="flex">
 				<input type="checkbox" class="mr-4" bind:checked={controls.isTime} />
-				<input
-					type="text"
-					class="w-20"
-					bind:value={controls.timeFormat}
-					disabled={!controls.isTime}
-				/>
+				<div>
+					<input
+						type="text"
+						class="w-20"
+						bind:value={controls.timeFormat}
+						disabled={!controls.isTime}
+					/>
+					分
+				</div>
 			</div>
 		</label>
 		<label for="">
@@ -52,6 +55,7 @@
 <style>
 	label {
 		display: flex;
+		align-items: center;
 	}
 	label span {
 		margin-right: 8px;
