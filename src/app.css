@@ -111,7 +111,7 @@ button:focus:not(:focus-visible) {
 @tailwind utilities;
 
 input {
-	@apply border p-2 rounded;
+	@apply border py-1 px-2 rounded;
 }
 
 input:disabled {

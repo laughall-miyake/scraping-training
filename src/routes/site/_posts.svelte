@@ -2,22 +2,48 @@
 	export let controls;
 
 	import moment from 'moment';
+	import Post from './_post.svelte';
 
-	let now = moment();
+	let postDate = moment();
 
 	let posts = [];
+
+	const editDate = (postDate, dateFormat, timeFormat, isAgo) => {
+		if (!dateFormat && !timeFormat) {
+			return '';
+		}
+
+		if (isAgo) {
+			const now = moment();
+			const diff = now.diff(postDate, 'hour');
+			if (1 <= diff && diff < 24) {
+				return `${diff}時間前`;
+			} else if (diff < 1) {
+				const diffMinute = now.diff(postDate, 'minute');
+				return `${diffMinute}分前`;
+			}
+		}
+
+		if (dateFormat && !timeFormat) {
+			return postDate.format(dateFormat);
+		}
+
+		if (!dateFormat && timeFormat) {
+			return postDate.format(timeFormat);
+		}
+
+		return postDate.format(dateFormat) + ' ' + postDate.format(timeFormat);
+	};
 
 	for (let i = 1; i <= controls.postCount; i++) {
 		posts.push({
 			no: i,
 			title: controls.title.replaceAll('{no}', String(i)),
-			datetime:
-				now.format(controls.dateFormat) +
-				(controls.isTime ? ' ' + now.format(controls.timeFormat) : ''),
-			timeDatetime: now.format(),
-			image: `/sample/${i}.jpg`
+			datetime: editDate(postDate, controls.dateFormat, controls.timeFormat, controls.isAgo),
+			timeDatetime: postDate.format(),
+			image: controls.isImage ? `/sample/${i}.jpg` : null
 		});
-		now.add(controls.interval, 'minute');
+		postDate.subtract(controls.interval, 'minute');
 	}
 </script>
 
@@ -26,13 +52,7 @@
 	<hr class="my-2" />
 	<div class="flex flex-wrap gap-2">
 		{#each posts as post}
-			<a href="/site/details/{post.no}" class="w-[300px]">
-				{#if controls.isImage}
-					<img class="w-[300px] h-[200px] object-cover" src={post.image} alt="" />
-				{/if}
-				<div class="font-bold">{post.title}</div>
-				<time class="text-sm text-gray-500" datetime={post.timeDatetime}>{post.datetime}</time>
-			</a>
+			<Post {post} />
 		{/each}
 	</div>
 </div>

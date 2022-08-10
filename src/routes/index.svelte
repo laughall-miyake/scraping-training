@@ -13,7 +13,8 @@
 		isTime: true,
 		timeFormat: 'HH:mm',
 		isImage: true,
-		interval: 360
+		interval: 360,
+		isAgo: true
 	};
 
 	let q = '';

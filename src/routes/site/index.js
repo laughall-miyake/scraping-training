@@ -1,7 +1,6 @@
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export function GET(event) {
 	// log all headers
-	console.log(event.clientAddress);
 
 	return {
 		body: {
