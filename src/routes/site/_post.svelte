@@ -2,7 +2,7 @@
 	export let post;
 </script>
 
-<article class="w-[200px] overflow-clip">
+<article class="w-[200px] overflow-clip leading-4">
 	<a href="/site/details/{post.no}">
 		{#if post.image}
 			<img class="w-[200px] h-[100px] object-cover mb-1" src={post.image} alt="" />
