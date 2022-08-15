@@ -1,6 +1,9 @@
 <script>
 	import Header from '$lib/header/Header.svelte';
 	import Footer from '$lib/footer/Footer.svelte';
+
+	import Notify from '$lib/Notify.svelte';
+
 	import '../app.css';
 </script>
 
@@ -13,6 +16,7 @@
 </svelte:head>
 
 <Header />
+<Notify />
 
 <main class="py-8 px-4 max-w-[1080px] m-auto">
 	<slot />
