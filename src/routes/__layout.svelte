@@ -1,5 +1,6 @@
 <script>
 	import Header from '$lib/header/Header.svelte';
+	import Footer from '$lib/footer/Footer.svelte';
 	import '../app.css';
 </script>
 
@@ -17,6 +18,4 @@
 	<slot />
 </main>
 
-<footer class="flex items-center justify-center text-xs bg-gray-900 text-white h-[40px]">
-	これはSvelteKitによって作成されています。
-</footer>
+<Footer />
