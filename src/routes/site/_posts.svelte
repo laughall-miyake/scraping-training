@@ -47,7 +47,7 @@
 	}
 </script>
 
-<div class="mt-10">
+<div class="mt-4">
 	<div class="text-2xl font-bold">記事一覧</div>
 	<hr class="my-2" />
 	<div class="flex flex-wrap gap-2">

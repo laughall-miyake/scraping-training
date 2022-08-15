@@ -4,7 +4,7 @@
 		title: '',
 		dateFormat: 'YYYY-MM-DD',
 		isTime: true,
-		timeFormat: 'HH:mm',
+		timeFormat: '',
 		isImage: true,
 		interval: 360,
 		isAgo: true
@@ -13,11 +13,7 @@
 
 <div class="grid grid-cols-control gap-2">
 	<div class="group">
-		<h2>一般</h2>
-		<label for="">
-			<span>記事数</span>
-			<input type="number" class="w-20" bind:value={controls.postCount} />
-		</label>
+		<h2>記事</h2>
 		<label for="">
 			<span>タイトル</span>
 			<input type="text" class="w-full" bind:value={controls.title} />
@@ -25,6 +21,13 @@
 		<label for="">
 			<span>画像あり</span>
 			<div><input type="checkbox" bind:checked={controls.isImage} /></div>
+		</label>
+	</div>
+	<div class="group">
+		<h2>一覧</h2>
+		<label for="">
+			<span>記事数</span>
+			<input type="number" class="w-20" bind:value={controls.postCount} />
 		</label>
 		<label for="">
 			<span>ページング（開発予定）</span>
@@ -41,6 +44,7 @@
 					class="w-20"
 					bind:value={controls.timeFormat}
 					disabled={!controls.isTime}
+					placeholder="HH:mm"
 				/>
 			</div>
 		</label>
@@ -54,6 +58,7 @@
 		<label for="">
 			<span>X時間前表記にする</span>
 			<div><input type="checkbox" bind:checked={controls.isAgo} /></div>
+			<div class="text-xs text-gray-400">ONの場合、24時間以内であれば表記が"X時間前"になる</div>
 		</label>
 	</div>
 	<div class="group">
@@ -68,19 +73,29 @@
 			<span>imgタグに付与</span>
 		</label>
 	</div>
+	<div class="group">
+		<h2>ヘッダー</h2>
+		<label for="">
+			<span>robots 不可/許可</span>
+		</label>
+		<label for="">
+			<span>og系付与</span>
+		</label>
+	</div>
 </div>
 
 <style>
 	h2 {
-		@apply font-bold mb-2;
+		@apply text-xl font-bold;
 	}
 	label {
-		@apply flex flex-col w-[250px];
+		@apply flex flex-col w-[250px] mb-2;
 	}
 	label span {
 		margin-right: 8px;
+
 		display: inline-block;
-		@apply text-sm;
+		@apply text-xs;
 	}
 
 	.group {

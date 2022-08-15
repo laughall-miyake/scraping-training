@@ -111,7 +111,7 @@ button:focus:not(:focus-visible) {
 @tailwind utilities;
 
 body {
-	@apply bg-gray-50;
+	@apply bg-gray-50 tracking-wide leading-4;
 }
 
 input {

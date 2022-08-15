@@ -12,7 +12,7 @@
 		title: 'これは{no}の記事です',
 		dateFormat: 'YYYY-MM-DD',
 		isTime: true,
-		timeFormat: 'HH:mm',
+		timeFormat: '',
 		isImage: true,
 		interval: 360,
 		isAgo: true

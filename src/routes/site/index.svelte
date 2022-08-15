@@ -8,6 +8,7 @@
 	import Request from './_request.svelte';
 	import Posts from './_posts.svelte';
 	import Query from './_query.svelte';
+	import notifyStore from '$lib/store/notify';
 
 	let controls = {
 		postCount: 0,
@@ -26,10 +27,24 @@
 	controls.isImage = $page.url.searchParams.get('isImage') === 'true';
 	controls.isAgo = $page.url.searchParams.get('isAgo') === 'true';
 	controls.interval = Number($page.url.searchParams.get('interval'));
+
+	const copy = () => {
+		navigator.clipboard.writeText($page.url.toString());
+		notifyStore.info('クリップボードにコピーしました');
+	};
 </script>
 
-<div>
-	<div><Query /></div>
-	<div class="mt-2"><Request {ipAddress} {userAgent} {referer} /></div>
+<div class="flex flex-col gap-2">
+	<div class="text-right">
+		<button
+			class="inline-flex bg-white py-2 px-4 border shadow rounded text-sm gap-1"
+			on:click={copy}
+		>
+			<img src="/copy.svg" class="w-5" alt="" />
+			<span>このページのURLをコピーする</span>
+		</button>
+	</div>
+	<Query />
+	<Request {ipAddress} {userAgent} {referer} />
 	<Posts {controls} />
 </div>
