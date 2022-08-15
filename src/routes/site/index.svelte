@@ -7,6 +7,7 @@
 
 	import Request from './_request.svelte';
 	import Posts from './_posts.svelte';
+	import Query from './_query.svelte';
 
 	let controls = {
 		postCount: 0,
@@ -28,6 +29,7 @@
 </script>
 
 <div>
-	<Request {ipAddress} {userAgent} {referer} />
+	<div><Query /></div>
+	<div class="mt-2"><Request {ipAddress} {userAgent} {referer} /></div>
 	<Posts {controls} />
 </div>

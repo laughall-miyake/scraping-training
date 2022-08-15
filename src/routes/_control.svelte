@@ -33,20 +33,19 @@
 	<div class="group">
 		<h2>更新日</h2>
 		<label for="">
-			<span>日付形式</span>
-			<input type="text" class="w-40" bind:value={controls.dateFormat} />
+			<span>日時形式</span>
+			<div>
+				<input type="text" class="w-32" bind:value={controls.dateFormat} />
+				<input
+					type="text"
+					class="w-20"
+					bind:value={controls.timeFormat}
+					disabled={!controls.isTime}
+				/>
+			</div>
 		</label>
 		<label for="">
-			<span>時間形式</span>
-			<input
-				type="text"
-				class="w-28"
-				bind:value={controls.timeFormat}
-				disabled={!controls.isTime}
-			/>
-		</label>
-		<label for="">
-			<span>時間間隔</span>
+			<span>記事の時間間隔</span>
 			<div>
 				<input type="number" class="w-20" bind:value={controls.interval} />
 				分

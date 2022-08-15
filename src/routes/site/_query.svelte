@@ -1,21 +1,17 @@
 <script>
-	export let ipAddress = '';
-	export let userAgent = '';
-	export let referer = '';
+	import { query } from '$lib/store/query';
 
 	let visible = false;
 </script>
 
 <div class="border py-2 px-4 break-words">
 	<div class="font-bold flex justify-between items-center" on:click={() => (visible = !visible)}>
-		<span>リクエスト情報</span>
+		<span>構築条件</span>
 		<img class="inline-block w-8" src="/expand_{visible ? 'less' : 'more'}.svg" alt="" />
 	</div>
 	{#if visible}
 		<div class="text-sm">
-			<div><span class="font-bold">ipAddress:</span> {ipAddress}</div>
-			<div><span class="font-bold">userAgent:</span> {userAgent}</div>
-			<div><span class="font-bold">referer:</span> {referer}</div>
+			<div><span class="font-bold" /> {JSON.stringify($query)}</div>
 		</div>
 	{/if}
 </div>

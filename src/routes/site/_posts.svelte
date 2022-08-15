@@ -35,13 +35,13 @@
 		return postDate.format(dateFormat) + ' ' + postDate.format(timeFormat);
 	};
 
-	for (let i = 1; i <= controls.postCount; i++) {
+	for (let i = 0; i < controls.postCount; i++) {
 		posts.push({
-			no: i,
-			title: controls.title.replaceAll('{no}', String(i)),
+			no: i + 1,
+			title: controls.title.replaceAll('{no}', String(i + 1)),
 			datetime: editDate(postDate, controls.dateFormat, controls.timeFormat, controls.isAgo),
 			timeDatetime: postDate.format(),
-			image: controls.isImage ? `/sample/${i}.jpg` : null
+			image: controls.isImage ? `/sample/${(i % 20) + 1}.jpg` : null
 		});
 		postDate.subtract(controls.interval, 'minute');
 	}

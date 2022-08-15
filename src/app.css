@@ -110,6 +110,10 @@ button:focus:not(:focus-visible) {
 @tailwind components;
 @tailwind utilities;
 
+body {
+	@apply bg-gray-50;
+}
+
 input {
 	@apply border py-1 px-2 rounded;
 }
