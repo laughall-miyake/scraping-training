@@ -48,11 +48,9 @@
 
 <div>
 	{#if applyLastQuery}
-		<div class="flex items-center justify-between bg-yellow-50 p-4 border shadow mb-2">
+		<div class="flex items-center justify-between bg-whit p-4 border shadow mb-4">
 			<div>最後の条件で復元しました</div>
-			<button on:click={reset} class="border bg-blue-600 text-white rounded px-4 py-1"
-				>クリア</button
-			>
+			<button on:click={reset} class=" bg-yellow-500 text-white rounded px-4 py-1">クリア</button>
 		</div>
 	{/if}
 	<Control bind:controls />

@@ -11,7 +11,7 @@
 	};
 </script>
 
-<div class="flex flex-wrap gap-4">
+<div class="grid grid-cols-control gap-2">
 	<div class="group">
 		<h2>一般</h2>
 		<label for="">
@@ -84,6 +84,6 @@
 	}
 
 	.group {
-		@apply flex flex-col gap-2 p-6 rounded bg-blue-100;
+		@apply flex flex-col gap-2 p-6 rounded bg-blue-100 shadow;
 	}
 </style>
