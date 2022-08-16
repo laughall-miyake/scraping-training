@@ -1,8 +1,10 @@
 <script>
 	export let controls;
+	export let url;
 
 	import moment from 'moment';
 	import Post from './_post.svelte';
+	import Pagination from './_pagination.svelte';
 
 	let postDate = moment();
 
@@ -35,7 +37,15 @@
 		return postDate.format(dateFormat) + ' ' + postDate.format(timeFormat);
 	};
 
-	for (let i = 0; i < controls.postCount; i++) {
+	let start = 0;
+	let end = controls.postCount;
+
+	if (controls.countPerPage) {
+		start = (controls.page - 1) * controls.countPerPage;
+		end = controls.page * controls.countPerPage;
+	}
+
+	for (let i = start; i < end; i++) {
 		posts.push({
 			no: i + 1,
 			title: controls.title.replaceAll('{no}', String(i + 1)),
@@ -55,4 +65,7 @@
 			<Post {post} />
 		{/each}
 	</div>
+	{#if controls.countPerPage}
+		<Pagination {controls} {url} />
+	{/if}
 </div>

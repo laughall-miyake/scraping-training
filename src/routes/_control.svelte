@@ -2,12 +2,12 @@
 	export let controls = {
 		postCount: 0,
 		title: '',
-		dateFormat: 'YYYY-MM-DD',
-		isTime: true,
+		dateFormat: '',
 		timeFormat: '',
-		isImage: true,
-		interval: 360,
-		isAgo: true
+		isImage: false,
+		interval: 0,
+		isAgo: false,
+		countPerPage: 0
 	};
 </script>
 
@@ -22,6 +22,13 @@
 			<span>画像あり</span>
 			<div><input type="checkbox" bind:checked={controls.isImage} /></div>
 		</label>
+		<label for="">
+			<span>記事の時間間隔</span>
+			<div>
+				<input type="number" class="w-20" bind:value={controls.interval} />
+				分
+			</div>
+		</label>
 	</div>
 	<div class="group">
 		<h2>一覧</h2>
@@ -30,7 +37,9 @@
 			<input type="number" class="w-20" bind:value={controls.postCount} />
 		</label>
 		<label for="">
-			<span>ページング（開発予定）</span>
+			<span>ページング</span>
+			<input type="number" class="w-20" bind:value={controls.countPerPage} />
+			<div class="text-xs text-gray-400">0の場合ページングしない</div>
 		</label>
 	</div>
 	<div class="group">
@@ -38,23 +47,11 @@
 		<label for="">
 			<span>日時形式</span>
 			<div>
-				<input type="text" class="w-32" bind:value={controls.dateFormat} />
-				<input
-					type="text"
-					class="w-20"
-					bind:value={controls.timeFormat}
-					disabled={!controls.isTime}
-					placeholder="HH:mm"
-				/>
+				<input type="text" class="w-32" bind:value={controls.dateFormat} placeholder="YYYY-MM-DD" />
+				<input type="text" class="w-20" bind:value={controls.timeFormat} placeholder="HH:mm" />
 			</div>
 		</label>
-		<label for="">
-			<span>記事の時間間隔</span>
-			<div>
-				<input type="number" class="w-20" bind:value={controls.interval} />
-				分
-			</div>
-		</label>
+
 		<label for="">
 			<span>X時間前表記にする</span>
 			<div><input type="checkbox" bind:checked={controls.isAgo} /></div>
@@ -62,7 +59,7 @@
 		</label>
 	</div>
 	<div class="group">
-		<h2>クラス付与（開発予定）</h2>
+		<h2>クラス付与（追加予定）</h2>
 		<label for="">
 			<span>articleタグに付与</span>
 		</label>
@@ -74,7 +71,7 @@
 		</label>
 	</div>
 	<div class="group">
-		<h2>ヘッダー</h2>
+		<h2>ヘッダー（追加予定）</h2>
 		<label for="">
 			<span>robots 不可/許可</span>
 		</label>

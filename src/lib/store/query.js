@@ -7,9 +7,6 @@ function createQuery() {
 		subscribe,
 		change: (newQuery) =>
 			update((n) => {
-				console.log(newQuery);
-				console.log(n);
-
 				return Object.assign(n, newQuery);
 			}),
 		reset: () => {

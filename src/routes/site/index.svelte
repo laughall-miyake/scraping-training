@@ -17,7 +17,9 @@
 		timeFormat: '',
 		isImage: false,
 		interval: 0,
-		isAgo: false
+		isAgo: false,
+		countPerPage: 0,
+		page: 0
 	};
 
 	controls.postCount = Number($page.url.searchParams.get('postCount'));
@@ -27,6 +29,8 @@
 	controls.isImage = $page.url.searchParams.get('isImage') === 'true';
 	controls.isAgo = $page.url.searchParams.get('isAgo') === 'true';
 	controls.interval = Number($page.url.searchParams.get('interval'));
+	controls.countPerPage = Number($page.url.searchParams.get('countPerPage'));
+	controls.page = Number($page.url.searchParams.get('page'));
 
 	const copy = () => {
 		navigator.clipboard.writeText($page.url.toString());
@@ -46,5 +50,5 @@
 	</div>
 	<Query />
 	<Request {ipAddress} {userAgent} {referer} />
-	<Posts {controls} />
+	<Posts {controls} url={$page.url.toString()} />
 </div>

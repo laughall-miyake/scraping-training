@@ -1,8 +1,3 @@
-<!-- <script context="module">
-	export async function load(a) {
-		console.log(a);
-	}
-</script> -->
 <script>
 	import Control from './_control.svelte';
 	import { query } from '$lib/store/query';
@@ -15,7 +10,9 @@
 		timeFormat: '',
 		isImage: true,
 		interval: 360,
-		isAgo: true
+		isAgo: true,
+		countPerPage: 10,
+		page: 1
 	};
 
 	let controls = Object.assign({}, defaultControls);
