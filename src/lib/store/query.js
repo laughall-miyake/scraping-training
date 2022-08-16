@@ -1,18 +1,28 @@
 import { writable } from 'svelte/store';
+import { browser } from '$app/env';
+const KEY = 'QUERY';
 
-function createQuery() {
-	const { subscribe, set, update } = writable({});
+const { subscribe, set, update } = writable({});
 
-	return {
-		subscribe,
-		change: (newQuery) =>
-			update((n) => {
-				return Object.assign(n, newQuery);
-			}),
-		reset: () => {
-			set({});
-		}
-	};
+export const query = {
+	subscribe,
+	change: (newQuery) =>
+		update((n) => {
+			Object.assign(n, newQuery);
+			localStorage.setItem(KEY, JSON.stringify(n));
+			return n;
+		}),
+	init: () => set(JSON.parse(localStorage.getItem(KEY)) || {}),
+	reset: () => {
+		set({});
+		localStorage.removeItem(KEY);
+	}
+};
+
+if (browser) {
+	query.init();
 }
 
-export const query = createQuery();
+export default {
+	query
+};

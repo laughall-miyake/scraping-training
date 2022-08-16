@@ -19,7 +19,7 @@
 
 	let applyLastQuery = false;
 
-	if ($query) {
+	if (Object.keys($query).length !== 0) {
 		applyLastQuery = true;
 		Object.assign(controls, $query);
 	}
@@ -39,6 +39,7 @@
 
 	const reset = () => {
 		controls = Object.assign({}, defaultControls);
+		query.reset();
 		applyLastQuery = false;
 	};
 </script>
