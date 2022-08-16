@@ -6,10 +6,6 @@
 	import Post from './_post.svelte';
 	import Pagination from './_pagination.svelte';
 
-	let postDate = moment();
-
-	let posts = [];
-
 	const editDate = (postDate, dateFormat, timeFormat, isAgo) => {
 		if (!dateFormat && !timeFormat) {
 			return '';
@@ -39,11 +35,18 @@
 
 	let start = 0;
 	let end = controls.postCount;
+	let postDate = moment();
 
 	if (controls.countPerPage) {
 		start = (controls.page - 1) * controls.countPerPage;
+		// page分進める
+		postDate.subtract(start * controls.interval, 'minute');
+
 		end = controls.page * controls.countPerPage;
+		end = end > controls.postCount ? controls.postCount : end;
 	}
+
+	let posts = [];
 
 	for (let i = start; i < end; i++) {
 		posts.push({
@@ -51,6 +54,8 @@
 			title: controls.title.replaceAll('{no}', String(i + 1)),
 			datetime: editDate(postDate, controls.dateFormat, controls.timeFormat, controls.isAgo),
 			timeDatetime: postDate.format(),
+
+			// 20枚を繰り返す
 			image: controls.isImage ? `/sample/${(i % 20) + 1}.jpg` : null
 		});
 		postDate.subtract(controls.interval, 'minute');
