@@ -8,11 +8,20 @@
 </script>
 
 <svelte:head>
-	<title>スクレイピング練習用サイト（作成中）</title>
+	<title>スクレイピング練習場（ベータ）</title>
 	<meta
 		name="description"
-		content="誰でも自由に使えるスクレイピング練習用サイト！条件指定するだけで好きなレイアウトでスクレイピングを試せます。"
+		content="誰でも自由に使えるスクレイピング練習場！条件指定するだけで好きなレイアウトでスクレイピングを試せます。"
 	/>
+	<meta property="og:url" content="https://scraping-training.vercel.app/" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="スクレイピング練習場（ベータ）" />
+	<meta
+		property="og:description"
+		content="誰でも自由に使えるスクレイピング練習場！条件指定するだけで好きなレイアウトでスクレイピングを試せます。"
+	/>
+	<meta property="og:site_name" content="スクレイピング練習場" />
+	<meta property="og:image" content="https://scraping-training.vercel.app/oogesa_image.jpg" />
 </svelte:head>
 
 <Header />
