@@ -31,12 +31,21 @@
 	controls.interval = Number($page.url.searchParams.get('interval'));
 	controls.countPerPage = Number($page.url.searchParams.get('countPerPage'));
 	controls.page = Number($page.url.searchParams.get('page'));
+	controls.robots = $page.url.searchParams.get('robots') === 'true';
 
 	const copy = () => {
 		navigator.clipboard.writeText($page.url.toString());
 		notifyStore.info('クリップボードにコピーしました');
 	};
 </script>
+
+<svelte:head>
+	{#if controls.robots}
+		<meta name="robots" content="max-image-preview:large" />
+	{:else}
+		<meta name="robots" content="noindex" />
+	{/if}
+</svelte:head>
 
 <div class="flex flex-col gap-2">
 	<div class="text-right">

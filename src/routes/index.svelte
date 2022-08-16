@@ -12,7 +12,8 @@
 		interval: 360,
 		isAgo: true,
 		countPerPage: 10,
-		page: 1
+		page: 1,
+		robots: false
 	};
 
 	let controls = Object.assign({}, defaultControls);

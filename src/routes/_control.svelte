@@ -7,7 +7,8 @@
 		isImage: false,
 		interval: 0,
 		isAgo: false,
-		countPerPage: 0
+		countPerPage: 0,
+		robots: false
 	};
 </script>
 
@@ -71,12 +72,13 @@
 		</label>
 	</div>
 	<div class="group">
-		<h2>ヘッダー（追加予定）</h2>
+		<h2>ヘッダー</h2>
 		<label for="">
-			<span>robots 不可/許可</span>
+			<span>robots.txt 不許可</span>
+			<div><input type="checkbox" bind:checked={controls.robots} /></div>
 		</label>
 		<label for="">
-			<span>og系付与</span>
+			<span>og系付与（予定）</span>
 		</label>
 	</div>
 </div>
