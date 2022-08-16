@@ -74,7 +74,7 @@
 	<div class="group">
 		<h2>ヘッダー</h2>
 		<label for="">
-			<span>robots.txt 不許可</span>
+			<span>robots許可</span>
 			<div><input type="checkbox" bind:checked={controls.robots} /></div>
 		</label>
 		<label for="">

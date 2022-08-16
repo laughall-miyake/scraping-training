@@ -13,7 +13,7 @@
 		isAgo: true,
 		countPerPage: 10,
 		page: 1,
-		robots: false
+		robots: true
 	};
 
 	let controls = Object.assign({}, defaultControls);
