@@ -60,18 +60,6 @@
 		</label>
 	</div>
 	<div class="group">
-		<h2>クラス付与（追加予定）</h2>
-		<label for="">
-			<span>articleタグに付与</span>
-		</label>
-		<label for="">
-			<span>aタグに付与</span>
-		</label>
-		<label for="">
-			<span>imgタグに付与</span>
-		</label>
-	</div>
-	<div class="group">
 		<h2>ヘッダー</h2>
 		<label for="">
 			<span>robots許可</span>
@@ -98,6 +86,6 @@
 	}
 
 	.group {
-		@apply flex flex-col gap-2 p-6 rounded bg-blue-100 shadow;
+		@apply flex flex-col gap-2 p-6 rounded border bg-white;
 	}
 </style>

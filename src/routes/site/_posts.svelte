@@ -65,7 +65,7 @@
 <div class="mt-4">
 	<div class="text-2xl font-bold">記事一覧</div>
 	<hr class="my-2" />
-	<div class="flex flex-wrap gap-2">
+	<div class="post-list flex flex-wrap gap-3">
 		{#each posts as post}
 			<Post {post} />
 		{/each}

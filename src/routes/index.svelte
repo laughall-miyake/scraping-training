@@ -47,7 +47,7 @@
 
 <div>
 	{#if applyLastQuery}
-		<div class="flex items-center justify-between bg-whit p-4 border shadow mb-4">
+		<div class="flex items-center justify-between bg-whit p-4 border mb-4 bg-white rounded">
 			<div>最後の条件で復元しました</div>
 			<button on:click={reset} class=" bg-yellow-500 text-white rounded px-4 py-1">クリア</button>
 		</div>
@@ -63,13 +63,31 @@
 		>
 	</div>
 
-	<div class="border p-8 bg-white mt-20">
-		<div>スクレイピングの練習をしたいけど、サイトに迷惑をかけたくない人のための練習サイト</div>
+	<div class="description mt-20">
+		<h2>使い方</h2>
+		<div>１．条件を指定する（そのままでもOK）</div>
+		<div>２．「サイトを構築する」ボタンをクリック</div>
+	</div>
+
+	<div class="description">
+		<h2>このサイトの目的</h2>
+		<div>スクレイピングの練習をしたいけど、サイトに迷惑をかけたくない人のための練習場です。</div>
 		<div>特に制限はありません。お問い合わせや要望はgithubからお願いします。</div>
 	</div>
 
-	<div class="border p-8 bg-white mt-10">
-		<div>タイトル:{'{no}'}は番号に置換</div>
-		<div>日付と時間形式:https://momentjs.com/</div>
+	<div class="description">
+		<h2>その他仕様</h2>
+		<div>・タイトル:{'{no}'}は番号に置換</div>
+		<div>・日付と時間形式:https://momentjs.com/</div>
 	</div>
 </div>
+
+<style>
+	h2 {
+		@apply text-xl font-bold mb-2;
+	}
+
+	div.description {
+		@apply border p-8 bg-white mt-6 rounded;
+	}
+</style>
